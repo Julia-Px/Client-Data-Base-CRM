@@ -1,0 +1,53 @@
+<div class='container'>
+	<h2 class='gray-header'>Lista Klientów:</h2>
+</div>
+<div class='container'>
+	<table>
+		<thead>
+			<tr>
+				<th>
+					Email:
+				</th>
+				<th>
+					Imię:
+				</th>
+				<th>
+					Data następnego kontaktu:
+				</th>
+				<th>
+
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each client}}
+				<tr>
+					<th>
+						<a href='mailto:{{this.mail}}' target='_blank'>{{this.mail}}</a>
+					</th>
+					<td>
+						<a href='/client/{{this.id}}'>{{this.name}}</a>
+					</td>
+					<td>
+						{{this.nextContact}}
+					</td>
+					<td>
+						<a href='/client/{{this.id}}'>Szczegóły</a>
+						{{!-- UWAGA!! w ten sposób możemy przekazać jedynie metodę GET lub POST. Nie możemy zrobieć DELETE: <form method='DELETE' action='/client/{{this.id}}'><button>Usuń</button></form> -- Dlatego instalujemy middlewere npm i method-override i wpisujemy w <form> jako metoda POST--}}
+						<form method='POST' action='/client/{{this.id}}?_method=DELETE'><button>Usuń</button></form>
+						{{! Robimy ?_method=DELETE bo to nam w przeglądarce zmienia posta w delete }}
+					</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+	<p>
+		<form method='GET' action='client/forms/add'>
+			<button type='submit'>Dodaj nowego klienta</button>
+		</form>
+	</p>
+
+	{{! Formularz dodawania nowego klienta. Nie jest to coś restowego w naszej aplikacji ale nie jest też nie restowe. Jest to poprostu coś co jest w naszej aplikacji dodatkowo }}
+
+</div>

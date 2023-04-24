@@ -1,0 +1,23 @@
+table {
+	text-align: left;
+}
+
+tr {
+	padding: 4px;
+	margin: 2px;
+	background-color: #d8c3c3;
+}
+
+thead tr:nth-child(2n) {
+	background-color: #c7b9b9;
+}
+
+thead tr,
+.head-of-left th {
+	background-color: #8d7a7a;
+}
+
+td,
+th {
+	padding: 4px;
+}

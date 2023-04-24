@@ -1,0 +1,40 @@
+<h2>Dodawanie nowego klienta do bazy</h2>
+
+<form method='POST' action='/client'>
+	{{! Wysyłamy metodą post dane z formularza na adres /client - czyli na naszą główną stronę 
+	Dane znajdą się w req.body a nie w req.params !!!}}
+	<p>
+		<label>
+			<p>E-mail:</p>
+			<p>
+				<input type='email' name='mail' />
+			</p>
+		</label>
+
+		<label>
+			<p>Imię:</p>
+			<p>
+				<input type='text' name='name' />
+			</p>
+		</label>
+
+		<label>
+			<p>Data następnego kontaktu:</p>
+			<p>
+				<input type='date' name='nextContact' />
+			</p>
+		</label>
+
+		<label>
+			<p>Notatki</p>
+			<p>
+				<input type='text' name='notes' />
+			</p>
+		</label>
+
+		<p>
+			<button type='submit'>Zapisz</button>
+		</p>
+
+	</p>
+</form>
